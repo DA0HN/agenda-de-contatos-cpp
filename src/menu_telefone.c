@@ -27,8 +27,8 @@ void salvarTelefone() {
 void __salvarTelefone(Telefone *telefone) {
     FILE *arquivo = abreArquivo('a', TELEFONE);
     fprintf(arquivo, "%d %d %s\n",
-            telefone->idPessoa,
             telefone->idTelefone,
+            telefone->idPessoa,
             telefone->telefone
     );
     fecharArquivo(arquivo);
@@ -107,7 +107,7 @@ void alteraTelefone() {
     contador = 0;
     FILE *arquivo = abreArquivo('g', TELEFONE);
 
-    while ((contador++) < 20) {
+    while ((contador++) < QUANTIDADE_TELEFONES) {
         if (telefones[contador].idTelefone != -1) {
             __salvarTelefone(&telefones[contador]);
         }
@@ -115,59 +115,75 @@ void alteraTelefone() {
     fecharArquivo(arquivo);
 }
 
+void __excluirTelefone(size_t posicao) {
+    for(size_t i = posicao; i < QUANTIDADE_TELEFONES - 1; i++) {
+        telefones[i] = telefones[i + 1];
+    }
+}
+
 void excluirTelefone() {
     int id;
     printf("Digite o id do telefone: ");
     scanf("%d", &id);
 
-    Telefone telefone;
-
     __carregarTelefones();
 
-    int contador = 0;
+    size_t posicao = 0;
 
-    while ((contador++) < 20) {
-        if (id == telefones[contador].idTelefone) {
-
+    while (posicao < QUANTIDADE_TELEFONES) {
+        if (id == telefones[posicao].idTelefone) {
+            break;
         }
+        posicao++;
     }
+    __excluirTelefone(posicao);
 
-    contador = 0;
     FILE *arquivo = abreArquivo('g', TELEFONE);
+    size_t contador = 0;
 
-    while ((contador++) < 20) {
-        __salvarTelefone(&telefones[contador]);
+    while (contador < QUANTIDADE_TELEFONES) {
+        if(telefones[contador].idTelefone != -1) {
+            __salvarTelefone(&telefones[contador]);
+        }
+        contador++;
     }
     fecharArquivo(arquivo);
 }
 
 void crudTelefone() {
-    int opcao;
+    int sair = 0;
 
-    printf("\n1 - Cadastrar telefone\n");
-    printf("2 - Editar telefone\n");
-    printf("3 - Busca telefone\n");
-    printf("4 - Exclui telefone\n");
-    printf("5 - Voltar ao menu inicial\n");
-    printf("Opção: ");
-    scanf("%d", &opcao);
+    do {
+        int opcao;
 
-    switch (opcao) {
-        // Cria um novo telefone
-        case 1:
-            salvarTelefone();
-            break;
-        // Altera um telefone
-        case 2:
-            alteraTelefone();
-            break;
-        // Consulta telefone por id
-        case 3:
-            buscarTelefone();
-            break;
-        // Exclui telefone
-        case 4:
-            excluirTelefone();
-            break;
-    }
+        printf("\n1 - Cadastrar telefone\n");
+        printf("2 - Editar telefone\n");
+        printf("3 - Busca telefone\n");
+        printf("4 - Exclui telefone\n");
+        printf("5 - Voltar ao menu inicial\n");
+        printf("Opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            // Cria um novo telefone
+            case 1:
+                salvarTelefone();
+                break;
+                // Altera um telefone
+            case 2:
+                alteraTelefone();
+                break;
+                // Consulta telefone por id
+            case 3:
+                buscarTelefone();
+                break;
+                // Exclui telefone
+            case 4:
+                excluirTelefone();
+                break;
+            case 5:
+                sair = 1;
+                break;
+        }
+    } while (sair == 1);
 }

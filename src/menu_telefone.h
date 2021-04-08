@@ -24,7 +24,7 @@ void __buscarTelefone(int, Telefone*);
 
 void excluirTelefone();
 
-void __excluirTelefone(int);
+void __excluirTelefone(size_t);
 
 
 #endif //AGENDA_MENU_TELEFONE_H

@@ -1,6 +1,6 @@
 #include "arquivo.h"
 
-FILE* abreArquivo(char modo, char caminho[30]){ //funcao
+FILE* abreArquivo(char modo, char caminho[100]){ //funcao
     FILE *arquivo;
     switch(modo){
         case 'g':

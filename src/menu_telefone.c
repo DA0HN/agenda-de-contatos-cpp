@@ -88,8 +88,6 @@ void alteraTelefone() {
     printf("Digite o id do telefone: ");
     scanf("%d", &id);
 
-    Telefone telefone;
-
     __carregarTelefones();
 
     int contador = 0;

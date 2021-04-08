@@ -10,18 +10,20 @@
 void crudTelefone();
 
 void salvarTelefone();
-void __salvarTelefone(Telefone* telefone);
+
+void __salvarTelefone(Telefone*);
 
 void editarTelefone();
-void __editarTelefone(Telefone* telefone);
+
+void __editarTelefone(Telefone*);
 
 void buscarTelefone();
-void __buscarTelefone(int id, Telefone* telefone);
+
+void __buscarTelefone(int, Telefone*);
 
 void excluirTelefone();
-void __excluirTelefone(int id);
 
-
+void __excluirTelefone(int);
 
 
 #endif //AGENDA_MENU_TELEFONE_H

@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-FILE *abreArquivo(char, char[30]);
+FILE* abreArquivo(char, char[100]);
 void fecharArquivo(FILE*);
 
 #endif //AGENDA_ARQUIVO_H

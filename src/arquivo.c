@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "arquivo.h"
 
 FILE* abreArquivo(char modo, char caminho[30]){ //funcao
     FILE *arquivo;

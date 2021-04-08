@@ -21,7 +21,7 @@ Consulta de Registros (Todos ou por id da pessoa)
 #include <locale.h>
 #include <string.h>
 
-#include "menu.c"
+#include "menu.h"
 
 
 
@@ -31,5 +31,5 @@ int main(){
     // Cadastro/Edição/Exclusão de Telefones
     // Cadastro/Edição/Exclusão de E-mails
     // Consulta de Registros (Todos ou por id da pessoa)
-    crudTelefone();
+    menu();
 }

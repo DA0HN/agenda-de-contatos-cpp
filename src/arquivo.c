@@ -1,5 +1,9 @@
 #include "arquivo.h"
 
+const char* EMAIL = "/home/daohn/Documentos/code/agenda/email.txt";
+const char* PESSOA = "/home/daohn/Documentos/code/agenda/pessoa.txt";
+
+
 FILE* abreArquivo(char modo, char caminho[100]){ //funcao
     FILE *arquivo;
     switch(modo){

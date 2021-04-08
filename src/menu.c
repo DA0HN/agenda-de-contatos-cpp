@@ -7,11 +7,12 @@ void menu() {
     int sair = 0;
 
     do {
-        printf("\nMENU:");
-        printf("\n1 - Menu pessoa");
-        printf("\n2 - Menu email");
-        printf("\n3 - Menu telefone");
-        printf("\n4 - Sair");
+        printf("\nMENU:\n");
+        printf("1 - Menu pessoa\n");
+        printf("2 - Menu email\n");
+        printf("3 - Menu telefone\n");
+        printf("4 - Sair\n");
+        printf("Opção: ");
         scanf("%d", &opcao);
 
         switch (opcao) {

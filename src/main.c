@@ -24,8 +24,7 @@ Consulta de Registros (Todos ou por id da pessoa)
 #include "menu.h"
 
 
-
-int main(){
+int main() {
     // Deste modo o sistema deve conter:
     // Cadastro/Edição/Exclusão de Pessoas
     // Cadastro/Edição/Exclusão de Telefones

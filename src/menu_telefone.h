@@ -12,15 +12,15 @@ void crudTelefone();
 
 void salvarTelefone();
 
-void __salvarTelefone(Telefone*);
+void __salvarTelefone(Telefone *);
 
 void editarTelefone();
 
-void __editarTelefone(Telefone*);
+void __editarTelefone(Telefone *);
 
 void buscarTelefone();
 
-void __buscarTelefone(int, Telefone*);
+void __buscarTelefone(int, Telefone *);
 
 void excluirTelefone();
 

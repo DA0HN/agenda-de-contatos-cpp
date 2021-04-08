@@ -116,7 +116,7 @@ void alteraTelefone() {
 }
 
 void __excluirTelefone(size_t posicao) {
-    for(size_t i = posicao; i < QUANTIDADE_TELEFONES - 1; i++) {
+    for (size_t i = posicao; i < QUANTIDADE_TELEFONES - 1; i++) {
         telefones[i] = telefones[i + 1];
     }
 }
@@ -142,7 +142,7 @@ void excluirTelefone() {
     size_t contador = 0;
 
     while (contador < QUANTIDADE_TELEFONES) {
-        if(telefones[contador].idTelefone != -1) {
+        if (telefones[contador].idTelefone != -1) {
             __salvarTelefone(&telefones[contador]);
         }
         contador++;
@@ -165,23 +165,24 @@ void crudTelefone() {
         scanf("%d", &opcao);
 
         switch (opcao) {
-            // Cria um novo telefone
             case 1:
+                // Cria um novo telefone
                 salvarTelefone();
                 break;
-                // Altera um telefone
             case 2:
+                // Altera um telefone
                 alteraTelefone();
                 break;
-                // Consulta telefone por id
             case 3:
+                // Consulta telefone por id
                 buscarTelefone();
                 break;
-                // Exclui telefone
             case 4:
+                // Exclui telefone
                 excluirTelefone();
                 break;
             case 5:
+                // Retorna ao menu inicial
                 sair = 1;
                 break;
         }

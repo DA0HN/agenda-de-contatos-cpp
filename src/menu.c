@@ -29,5 +29,5 @@ void menu() {
                 sair = 1;
                 break;
         }
-    } while(sair == 0);
+    } while (sair == 0);
 }

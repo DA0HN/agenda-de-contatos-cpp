@@ -2,6 +2,7 @@
 #define AGENDA_ARQUIVO_H
 
 #include <stdio.h>
+#include <stdlib.h>
 
 FILE *abreArquivo(char, char[100]);
 

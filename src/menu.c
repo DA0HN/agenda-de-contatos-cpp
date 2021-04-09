@@ -17,10 +17,10 @@ void menu() {
 
         switch (opcao) {
             case 1:
-                // crudPessoa();
+                crudPessoa();
                 break;
             case 2:
-                // crudEmail();
+                crudEmail();
                 break;
             case 3:
                 crudTelefone();

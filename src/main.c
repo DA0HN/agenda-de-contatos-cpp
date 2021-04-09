@@ -21,8 +21,8 @@ Consulta de Registros (Todos ou por id da pessoa)
 #include <locale.h>
 #include <string.h>
 
-#include "menu.h"
 
+#include "menu.h"
 
 int main() {
     // Deste modo o sistema deve conter:

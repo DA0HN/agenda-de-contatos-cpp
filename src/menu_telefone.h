@@ -5,8 +5,7 @@
 #include <string.h>
 #include <stddef.h>
 
-#include "arquivo.h"
-#include "modelo.h"
+typedef struct Telefone Telefone;
 
 void crudTelefone();
 

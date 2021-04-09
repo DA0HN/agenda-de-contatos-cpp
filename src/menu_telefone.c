@@ -1,8 +1,6 @@
 #include "menu_telefone.h"
-
-#define QUANTIDADE_TELEFONES 20
-
-char *TELEFONE = "/home/daohn/Documentos/code/agenda/telefone.txt";
+#include "arquivo.h"
+#include "modelo.h"
 
 Telefone telefones[QUANTIDADE_TELEFONES];
 
@@ -25,7 +23,7 @@ void salvarTelefone() {
 
 
 void __salvarTelefone(Telefone *telefone) {
-    FILE *arquivo = abreArquivo('a', TELEFONE);
+    FILE *arquivo = abreArquivo('a', CAMINHO_TELEFONE);
     fprintf(arquivo, "%d %d %s\n",
             telefone->idTelefone,
             telefone->idPessoa,
@@ -50,7 +48,7 @@ void buscarTelefone() {
 
 void __buscarTelefone(int id, Telefone *telefone) {
 
-    FILE *arquivo = abreArquivo('l', TELEFONE);
+    FILE *arquivo = abreArquivo('l', CAMINHO_TELEFONE);
     int flag = 0;
     while (!feof(arquivo)) {
         setbuf(stdin, NULL);
@@ -72,7 +70,7 @@ void __buscarTelefone(int id, Telefone *telefone) {
 
 void __carregarTelefones() {
 
-    FILE *arquivo = abreArquivo('l', TELEFONE);
+    FILE *arquivo = abreArquivo('l', CAMINHO_TELEFONE);
 
     for (size_t i = 0; i < QUANTIDADE_TELEFONES; i++) telefones[i].idTelefone = -1;
 
@@ -105,7 +103,7 @@ void alteraTelefone() {
     }
 
     contador = 0;
-    FILE *arquivo = abreArquivo('g', TELEFONE);
+    FILE *arquivo = abreArquivo('g', CAMINHO_TELEFONE);
 
     while ((contador++) < QUANTIDADE_TELEFONES) {
         if (telefones[contador].idTelefone != -1) {
@@ -138,7 +136,7 @@ void excluirTelefone() {
     }
     __excluirTelefone(posicao);
 
-    FILE *arquivo = abreArquivo('g', TELEFONE);
+    FILE *arquivo = abreArquivo('g', CAMINHO_TELEFONE);
     size_t contador = 0;
 
     while (contador < QUANTIDADE_TELEFONES) {

@@ -7,6 +7,7 @@
 
 typedef struct Pessoa Pessoa;
 typedef struct Email Email;
+typedef struct Telefone Telefone;
 
 void crudPessoa();
 
@@ -22,8 +23,6 @@ void __salvarPessoa(Pessoa *);
 
 void editarPessoa();
 
-void __editarPessoa(Pessoa *);
-
 void buscarPessoa();
 
 int __buscarPessoa(int, Pessoa *);
@@ -38,7 +37,10 @@ void excluirEmailsPessoa(int);
 
 void __excluirEmailPessoa(size_t);
 
-void  __salvarEmailPessoa(Email *);
+void __excluirTelefonePessoa(int posicao);
 
+void excluirTelefonesPessoa(int id);
+
+void __filtraEmailsETelefones(int id, Telefone *telefones, Email *emails);
 
 #endif //AGENDA_MENU_PESSOA_H

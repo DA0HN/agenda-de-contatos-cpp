@@ -37,12 +37,12 @@ void excluirEmailsPessoa(int);
 
 void __excluirEmailPessoa(size_t);
 
-void __excluirTelefonePessoa(int posicao);
+void __excluirTelefonePessoa(int);
 
-void excluirTelefonesPessoa(int id);
+void excluirTelefonesPessoa(int);
 
-void __filtraEmailsETelefones(int id, Telefone *telefones, Email *emails);
+void __filtraEmailsETelefones(int, Telefone *, Email *);
 
-void __pessoaEncontrada(int id, Pessoa *pessoa);
+void __pessoaEncontrada(int, Pessoa *);
 
 #endif //AGENDA_MENU_PESSOA_H

@@ -257,6 +257,9 @@ void __pessoaEncontrada(int id, Pessoa *pessoa) {
     for (int i = 0; i < QUANTIDADE_TELEFONES; i++) telefonesDaPessoa[i].idPessoa = -1;
     for (int i = 0; i < QUANTIDADE_TELEFONES; i++) emailsDaPessoa[i].idPessoa = -1;
 
+    __carregarEmailPessoas();
+    __carregarTelefonePessoa();
+
     __filtraEmailsETelefones(id, telefonesDaPessoa, emailsDaPessoa);
 
     printf("Id: %d\n", pessoa->idPessoa);
@@ -277,20 +280,17 @@ void __pessoaEncontrada(int id, Pessoa *pessoa) {
     }
 }
 
-void __filtraEmailsETelefones(int id, Telefone telefones[QUANTIDADE_TELEFONES], Email emails[QUANTIDADE_PESSOAS]) {
-    __carregarEmailPessoas();
-    __carregarTelefonePessoa();
-
+void __filtraEmailsETelefones(int id, Telefone telefonesDaPessoa[QUANTIDADE_TELEFONES], Email emailsDaPessoa[QUANTIDADE_PESSOAS]) {
     // Filtra telefones relacionados à pessoa
     for (size_t i = 0, j = 0; i < QUANTIDADE_TELEFONES; i++) {
         if (pessoasTelefone[i].idPessoa == id) {
-            telefones[j++] = pessoasTelefone[i];
+            telefonesDaPessoa[j++] = pessoasTelefone[i];
         }
     }
     // Filtra emails relacionados à pessoa
     for (size_t i = 0, j = 0; i < QUANTIDADE_PESSOAS; i++) {
         if (pessoasEmail[i].idPessoa == id) {
-            emails[j++] = pessoasEmail[i];
+            emailsDaPessoa[j++] = pessoasEmail[i];
         }
     }
 }

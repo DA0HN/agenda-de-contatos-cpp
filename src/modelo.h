@@ -18,9 +18,9 @@ typedef struct Pessoa {
     char nome[50];
 } Pessoa;
 
-#define CAMINHO_PESSOA  "/home/daohn/Documentos/code/agenda/pessoa.txt"
-#define CAMINHO_TELEFONE  "/home/daohn/Documentos/code/agenda/telefone.txt"
-#define CAMINHO_EMAIL  "/home/daohn/Documentos/code/agenda/email.txt"
+#define CAMINHO_PESSOA  "../pessoa.txt"
+#define CAMINHO_TELEFONE  "../telefone.txt"
+#define CAMINHO_EMAIL  "../email.txt"
 
 #define QUANTIDADE_PESSOAS 20
 #define QUANTIDADE_EMAILS 20

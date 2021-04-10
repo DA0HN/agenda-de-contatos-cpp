@@ -88,7 +88,7 @@ void editarPessoa() {
 
     int contador = 0;
 
-    while (contador < 20) {
+    while (contador < QUANTIDADE_PESSOAS) {
         if (id == pessoas[contador].idPessoa) {
             printf("Informe novo nome para pessoa: ");
             scanf("%50s[^\n]", pessoas[contador].nome);
@@ -246,29 +246,33 @@ void buscarPessoa() {
     int encontrado = __buscarPessoa(id, &pessoa);
 
     if (encontrado) {
-        Telefone telefonesDaPessoa[QUANTIDADE_TELEFONES];
-        Email emailsDaPessoa[QUANTIDADE_PESSOAS];
+        __pessoaEncontrada(id, &pessoa);
+    }
+}
 
-        for (int i = 0; i < QUANTIDADE_TELEFONES; i++) telefonesDaPessoa[i].idPessoa = -1;
-        for (int i = 0; i < QUANTIDADE_TELEFONES; i++) emailsDaPessoa[i].idPessoa = -1;
+void __pessoaEncontrada(int id, Pessoa *pessoa) {
+    Telefone telefonesDaPessoa[QUANTIDADE_TELEFONES];
+    Email emailsDaPessoa[QUANTIDADE_PESSOAS];
 
-        __filtraEmailsETelefones(id, telefonesDaPessoa, emailsDaPessoa);
+    for (int i = 0; i < QUANTIDADE_TELEFONES; i++) telefonesDaPessoa[i].idPessoa = -1;
+    for (int i = 0; i < QUANTIDADE_TELEFONES; i++) emailsDaPessoa[i].idPessoa = -1;
 
-        printf("Id: %d\n", pessoa.idPessoa);
-        printf("Nome: %s\n", pessoa.nome);
+    __filtraEmailsETelefones(id, telefonesDaPessoa, emailsDaPessoa);
 
-        printf("Telefones:\n");
-        for (size_t i = 0; i < QUANTIDADE_TELEFONES; i++) {
-            if (telefonesDaPessoa[i].idPessoa != -1) {
-                printf("%s\n", telefonesDaPessoa[i].telefone);
-            }
+    printf("Id: %d\n", pessoa->idPessoa);
+    printf("Nome: %s\n", pessoa->nome);
+
+    printf("Telefones:\n");
+    for (size_t i = 0; i < QUANTIDADE_TELEFONES; i++) {
+        if (telefonesDaPessoa[i].idPessoa != -1) {
+            printf("%s\n", telefonesDaPessoa[i].telefone);
         }
+    }
 
-        printf("Emails:\n");
-        for (size_t i = 0; i < QUANTIDADE_EMAILS; i++) {
-            if (emailsDaPessoa[i].idPessoa != -1) {
-                printf("%s\n", emailsDaPessoa[i].email);
-            }
+    printf("Emails:\n");
+    for (size_t i = 0; i < QUANTIDADE_EMAILS; i++) {
+        if (emailsDaPessoa[i].idPessoa != -1) {
+            printf("%s\n", emailsDaPessoa[i].email);
         }
     }
 }

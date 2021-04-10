@@ -43,4 +43,6 @@ void excluirTelefonesPessoa(int id);
 
 void __filtraEmailsETelefones(int id, Telefone *telefones, Email *emails);
 
+void __pessoaEncontrada(int id, Pessoa *pessoa);
+
 #endif //AGENDA_MENU_PESSOA_H
